@@ -1,0 +1,16 @@
+########### Websile from Laravel  ##########
+1) composer require laravel/breeze --dev
+2) php artisan breeze:install blade
+3) php artisan migrate
+4) npm install
+5) npm run dev
+
+########### Website from Laratrust ##############
+1) composer require santigarcor/laratrust
+2) php artisan vendor:publish --tag="laratrust"
+3) php artisan laratrust:setup
+4) composer dump-autoload
+5) php artisan laratrust:seeder
+6) php artisan vendor:publish --tag="laratrust-seeder"
+7) php artisan migrate
+8) php artisan db:seed
