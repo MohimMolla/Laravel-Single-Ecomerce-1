@@ -19,9 +19,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', [DashbordController::class,'index']);
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -44,6 +46,7 @@ Route::controller(DashbordController::class)->group(function(){
 Route::controller(CategoryController::class)->group(function(){
     Route::get('/admin/all-category', 'index')->name('allcategory');
     Route::get('/admin/add-category', 'addcategory')->name('addcategory');
+    Route::post('/admin/store-category', 'storecategory')->name('storecategory');
     
 });
 Route::controller(SubcategoryController::class)->group(function(){
