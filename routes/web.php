@@ -43,16 +43,28 @@ Route::controller(DashbordController::class)->group(function(){
     Route::get('/admin/dashboard', 'index');
     // Route::get('/userdashboard', 'dashboard');
 });
+
+// Category  Controller start
 Route::controller(CategoryController::class)->group(function(){
     Route::get('/admin/all-category', 'index')->name('allcategory');
     Route::get('/admin/add-category', 'addcategory')->name('addcategory');
     Route::post('/admin/store-category', 'storecategory')->name('storecategory');
-    
+    Route::get('/admin/edit-category/{id}', 'editcategory')->name('editcategory');
+    Route::post('/admin/update-category', 'updatecategory')->name('updatecategory');
+    Route::get('/admin/delet-category/{id}', 'deletecategory')->name('deletecategory');    
 });
+// Category  Controller end
+
+// Subcategory Controller start
 Route::controller(SubcategoryController::class)->group(function(){
     Route::get('/admin/all-subcategory', 'index')->name('allsubcategory');
     Route::get('/admin/add-subcategory', 'addsubcategory')->name('addsubcategory');    
+    Route::post('/admin/store-subcategory', 'storesubcategory')->name('storesubcategory');    
+    Route::get('/admin/edit-subcategory/{id}', 'editsubcategory')->name('editsubcategory');    
+    Route::get('/admin/delet-subcategory/{id}', 'deletesubcategory')->name('deletesubcategory');    
+    Route::post('/admin/update-subcategory', 'updatesubcategory')->name('updatesubcategory');    
 });
+// Subcategory Controller end
 
 Route::controller(ProductController::class)->group(function(){
     Route::get('/admin/all-product', 'index')->name('allproduct');
