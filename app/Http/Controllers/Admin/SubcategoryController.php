@@ -52,9 +52,12 @@ class SubcategoryController extends Controller
   public function updatesubcategory(Request $request)
   {
     $request->validate([
-      'subcategory_name' => 'required|unique:subcategories,subcategory_name,' . $request->input('subcatid'),
+      'subcategory_name' => 'required|unique:subcategories,
+    
+      subcategory_name,' . $request->input('subcatid'),
       'category_id' => 'required',
     ]);
+      //if i want to update a category then i use this code
 
     $categories_id = $request->category_id;
     $categories_name = Category::where('id', $categories_id)->value('category_name');
@@ -71,9 +74,16 @@ class SubcategoryController extends Controller
 
     return redirect()->route('allsubcategory')->with('message', 'Subcategory updated successfully');
   }
-  public function deletesubcategory($id)
+  public function deletesubcategory($id,)
   {
+    $cat_id = Subcategory::where('id', $id)->value('category_id');
     Subcategory::findOrFail($id)->delete();
+
+    Category::where('id', $cat_id)->decrement('subcategory_count', 1);
+
+
+
+
     return redirect()->route('allsubcategory')->with('message', 'Subcategory Delet successfully');
   }
 }

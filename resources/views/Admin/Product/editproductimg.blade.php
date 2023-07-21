@@ -1,14 +1,14 @@
 @extends('layouts.dashboard')
-@section('page-title')
-    Add Subcategory
+@section('page-tittle')
+    Edit Product Image
 @endsection
 @section('content')
     <div class="container-xxl flex-grow-1 container-p-y">
-        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Pages/</span> Add Subcategory</h4>
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Pages/</span> Edit Product Image</h4>
         <div class="col-xxl">
             <div class="card mb-4">
                 <div class="card-header d-flex align-items-center justify-content-between">
-                    <h4>Add New Subcategory</h4>
+                    <h4>Edit Product Image</h4>
                     <small class="text-muted float-end">Input Information</small>
                 </div>
                 <div class="card-body">
@@ -21,29 +21,29 @@
                             </ul>
                         </div>
                     @endif
-                    <form action="{{ route('storesubcategory') }}" method="POST">
+                    <form action="{{ route('updateproductimage') }}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        <input type="hidden" value="{{$p_img->id}}" name="id">
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="category">Select Category</label>
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Previous Image</label>
                             <div class="col-sm-10">
-                                <select class="form-select" id="category" name="category_id" aria-label="Default select example">
-                                    <option value="-1">Select Category</option>
-                                    @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->category_name }}</option>
-                                    @endforeach
-                                </select>
+																													<img src="{{ asset('productimage/' . $p_img->product_image) }}" height="100px" alt="">
                             </div>
                         </div>
+																								
+                        
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="subcategory_name">Subcategory Name</label>
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Product Image Upload</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="subcategory_name" name="subcategory_name"
-                                    placeholder="Enter Subcategory Name" />
+                                <input type="file" class="form-control" id="product_image" name="product_image" />
                             </div>
                         </div>
+
+
+
                         <div class="row justify-content-end">
                             <div class="col-sm-10">
-                                <button type="submit" class="btn btn-primary">Add Subcategory</button>
+                                <button type="submit" class="btn btn-primary">Update Product Image</button>
                             </div>
                         </div>
                     </form>

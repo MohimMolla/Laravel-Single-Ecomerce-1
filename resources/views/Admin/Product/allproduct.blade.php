@@ -8,10 +8,16 @@ All Product
 	<h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Pages/</span> All Product</h4>
 	<!-- Bootstrap Table with Header - Light -->
 	<div class="card">
+		@if (session()->has('message'))
+		<div class="alert alert-success">
+						{{ session()->get('message') }}
+		</div>
+@endif
 			<h5 class="card-header">Available All Product Information</h5>
 			<div class="table-responsive text-nowrap">
 					<table class="table">
 							<thead class="table-light">
+								
 									<tr>
 											<th>Id</th>
 											<th>Product Name</th>
@@ -22,17 +28,25 @@ All Product
 							</thead>
 							<tbody class="table-border-bottom-0">
 
-
+								@foreach ($products as $product)
+												
+						
 									<tr>
-											<td>1</td>
-											<td>Electronic</td>
-											<td>Mobile</td>
-											<td>100</td>
+											<td>{{$product->id}}</td>
+											<td>{{$product->product_name}}</td>
+											<td>{{$product->product_category_name}}</td>
+											<td>{{$product->product_subcategory_name}}</td>
+											<td>{{$product->product_subcategory_name}}</td>
 											<td>
-													<a class="btn btn-primary" href="">Edit</a>
-													<a class="btn btn-danger" href="">Delet</a>
+												<img src="{{ asset('productimage/' . $product->product_image) }}" height="100px" alt="">
+												<a class="btn btn-primary" href="{{route('editproductimage',$product->id)}}">Update Image</a>
+											</td>
+											<td>
+													<a class="btn btn-primary" href="{{route('editproduct',$product->id)}}">Edit</a>
+													<a class="btn btn-danger" href="{{route('deletproduct',$product->id)}}">Delet</a>
 											</td>
 									</tr>
+									@endforeach
 							</tbody>
 					</table>
 			</div>

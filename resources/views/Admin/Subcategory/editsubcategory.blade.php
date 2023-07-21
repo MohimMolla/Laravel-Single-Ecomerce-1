@@ -23,12 +23,13 @@
                     @endif
                     <form action="{{ route('updatesubcategory') }}" method="POST">
                         @csrf
-												<input type="hidden" value="{{$subcat_info->id}}" name="subcatid">
+                        <input type="hidden" value="{{ $subcat_info->id }}" name="subcatid">
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="category">Select Category</label>
                             <div class="col-sm-10">
-                                <select class="form-select" id="category" name="category_id" aria-label="Default select example">
-                                    <option selected disabled>Open this select menu</option>
+                                <select class="form-select" id="category" name="category_id"
+                                    aria-label="Default select example">
+                                    {{-- <option >Open this select menu</option> --}}
                                     @foreach ($categories as $category)
                                         <option value="{{ $category->id }}">{{ $category->category_name }}</option>
                                     @endforeach
@@ -39,8 +40,7 @@
                             <label class="col-sm-2 col-form-label" for="subcategory_name">Subcategory Name</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="subcategory_name" name="subcategory_name"
-                                value="{{$subcat_info->subcategory_name}}"   
-																placeholder="Enter Subcategory Name" />
+                                    value="{{ $subcat_info->subcategory_name }}" placeholder="Enter Subcategory Name" />
                             </div>
                         </div>
                         <div class="row justify-content-end">

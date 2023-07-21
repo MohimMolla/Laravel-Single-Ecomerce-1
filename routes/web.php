@@ -66,11 +66,20 @@ Route::controller(SubcategoryController::class)->group(function(){
 });
 // Subcategory Controller end
 
+
+//Product Controller start
 Route::controller(ProductController::class)->group(function(){
     Route::get('/admin/all-product', 'index')->name('allproduct');
     Route::get('/admin/add-product', 'addproduct')->name('addproduct');
+    Route::post('/admin/store-product', 'storeproduct')->name('storeproduct');
+    Route::get('/admin/edit-product-image/{id}', 'editproductimage')->name('editproductimage');
+    Route::post('/admin/update-product-image', 'updateproductimage')->name('updateproductimage');
+    Route::get('/admin/edit-product/{id}', 'editproduct')->name('editproduct');
+    Route::post('/admin/update-product', 'updateproduct')->name('updateproduct');
+    Route::get('/admin/delet-product/{id}', 'deletproduct')->name('deletproduct');
     
 });
+//Product Controller end
 
 Route::controller(OrderController::class)->group(function(){
     Route::get('/admin/pending-order', 'index')->name('pendingorder');
