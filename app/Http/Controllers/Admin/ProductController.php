@@ -155,8 +155,16 @@ return view('Admin.Product.editproduct', compact('p_info', 'categories', 'subcat
 	//Upadte Product image   end
 
 	public function deletproduct($id) {
-		Product::findOrFail($id)->delete();
+	
+		$cat_id = Product::where('id', $id)->value('product_category_id');
+		$subcat_id = Product::where('id', $id)->value('product_subcategory_id');
 		
+		Product::findOrFail($id)->delete();
+
+		Category::where('id',$cat_id)->decrement('product_count', 1);
+		Subcategory::where('id', $subcat_id)->decrement('product_count', 1);
+		return redirect()->route('allproduct')->with('message', 'Product Deleted successfully');
+
 	}
 
 }

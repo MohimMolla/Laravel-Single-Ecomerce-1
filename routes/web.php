@@ -6,6 +6,9 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SubcategoryController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\User\ClientController;
+use App\Http\Controllers\User\HomeController;
+use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,8 +24,11 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
 //     return view('welcome');
-// });
-Route::get('/', [DashbordController::class,'index']);
+// Route::get('/', function () {
+//     return view('user_templete.layouts.templete');
+//  });
+// Route::get('/', [DashbordController::class,'index']);
+Route::get('/admin', [DashbordController::class,'index']);
 
 
 Route::get('/dashboard', function () {
@@ -38,7 +44,7 @@ Route::middleware('auth')->group(function () {
 // admin route start
 // Route::get('/userprofile', [DashbordController::class,'index'])->name('userprofile');
 // admin route end
-// Controller group Routing start
+// Admin Controller group Routing start
 Route::controller(DashbordController::class)->group(function(){
     Route::get('/admin/dashboard', 'index');
     // Route::get('/userdashboard', 'dashboard');
@@ -87,5 +93,28 @@ Route::controller(OrderController::class)->group(function(){
     
 });
 // Controller group Routing end
+
+// User Controller group Routing start
+
+
+// Home Controller Controller group Routing start
+
+Route::controller(HomeController::class)->group(function(){
+ Route::get('/', 'index')->name('Home');
+});
+// Home Controller Controller group Routing End
+// Home Controller Controller group Routing start
+Route::controller(ClientController::class)->group(function(){
+    Route::get('/category', 'index')->name('category');
+    Route::get('/single-product', 'singleproduct')->name('singleproduct');
+    Route::get('/add-to-cart', 'addtocart')->name('addtocart');
+    Route::get('/checkout', 'checkout')->name('checkout');
+    Route::get('/user-profile', 'userprofile')->name('userprofile');
+    Route::get('/new-release', 'newrelease')->name('newrelease');
+    Route::get('/todayes-deal', 'todaysdeal')->name('todaysdeal');
+    Route::get('/custom-service', 'customservice')->name('customservice');
+});
+
+// User Controller group Routing end
 
 require __DIR__.'/auth.php';

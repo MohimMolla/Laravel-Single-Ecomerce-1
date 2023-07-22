@@ -9,17 +9,24 @@ use Illuminate\Http\Request;
 
 class SubcategoryController extends Controller
 {
+  
   public function index()
   {
     $subcategories = Subcategory::all();
     return view('Admin.Subcategory.allsubcategory', compact('subcategories'));
   }
+
+
+
   public function addsubcategory()
   {
     $categories = Category::all();
 
     return view('Admin.Subcategory.addsubcategory', compact('categories'));
   }
+
+
+
   public function storesubcategory(Request $request)
   {
     $request->validate([
@@ -41,6 +48,9 @@ class SubcategoryController extends Controller
 
     return redirect()->route('allsubcategory')->with('message', 'Subcategory added successfully');
   }
+
+
+
   public function editsubcategory($id)
   {
     $subcat_info = Subcategory::findOrFail($id);
@@ -48,6 +58,9 @@ class SubcategoryController extends Controller
 
     return view('Admin.Subcategory.editsubcategory', compact('subcat_info', 'categories'));
   }
+
+
+
 
   public function updatesubcategory(Request $request)
   {
@@ -74,6 +87,10 @@ class SubcategoryController extends Controller
 
     return redirect()->route('allsubcategory')->with('message', 'Subcategory updated successfully');
   }
+
+
+
+
   public function deletesubcategory($id,)
   {
     $cat_id = Subcategory::where('id', $id)->value('category_id');

@@ -42,7 +42,8 @@ All Product
 												<a class="btn btn-primary" href="{{route('editproductimage',$product->id)}}">Update Image</a>
 											</td>
 											<td>
-													<a class="btn btn-primary" href="{{route('editproduct',$product->id)}}">Edit</a>
+													<a onclick="return confirm('Are you sure you want to delete this subcategory?')"  class="btn btn-primary" href="{{route('editproduct',$product->id)}}">Edit</a>
+													
 													<a class="btn btn-danger" href="{{route('deletproduct',$product->id)}}">Delet</a>
 											</td>
 									</tr>
