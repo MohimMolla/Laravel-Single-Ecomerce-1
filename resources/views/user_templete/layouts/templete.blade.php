@@ -1,3 +1,7 @@
+@php
+    $categories = App\Models\Category::all();
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- mobile metas -->
-   
+
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     {{-- <!-- site metas --> {{ asset('user/') }} --}}
     <title>Eflyer</title>
@@ -37,7 +41,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('user/css/owl.carousel.min.css') }}">
     <link rel="stylesoeet" href="{{ asset('user/css/owl.theme.default.min.css') }}">
-				{{-- {{ asset('user/') }} --}}
+    {{-- {{ asset('user/') }} --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
         media="screen">
 </head>
@@ -53,10 +57,12 @@
                         <div class="custom_menu">
                             <ul>
                                 <li><a href="#">Best Sellers</a></li>
-                                <li><a href="{{route('category')}}">Gift Ideas</a></li>
-                                <li><a href="{{route('newrelease')}}">New Releases</a></li>
-                                <li><a href="{{route('todaysdeal')}}">Today's Deals</a></li>
-                                <li><a href="{{route('customservice')}}">Customer Service</a></li>
+                                {{-- <li>
+                                    <a href="{{ route('category', ['id' => $category->id, 'slug' => $category->slug]) }}">Gift Ideas</a>
+                                </li> --}}
+                                <li><a href="{{ route('newrelease') }}">New Releases</a></li>
+                                <li><a href="{{ route('todaysdeal') }}">Today's Deals</a></li>
+                                <li><a href="{{ route('customservice') }}">Customer Service</a></li>
                             </ul>
                         </div>
                     </div>
@@ -83,9 +89,18 @@
                     <div id="mySidenav" class="sidenav">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                         <a href="index.html">Home</a>
-                        <a href="fashion.html">Fashion</a>
-                        <a href="electronic.html">Electronic</a>
-                        <a href="jewellery.html">Jewellery</a>
+                        <!-- Assuming this is your Blade template -->
+
+
+                        <!-- Assuming this is your Blade template -->
+                        @foreach ($categories as $category)
+                            <a
+                                href="{{ route('category', ['id' => $category->id, 'slug' => $category->slug]) }}">{{ $category->category_name }}</a>
+                        @endforeach
+
+
+
+
                     </div>
                     <span class="toggle_icon" onclick="openNav()"><img
                             src="{{ asset('user/images/toggle-icon.png') }}"></span>
@@ -94,9 +109,10 @@
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Category
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            @foreach ($categories as $category)
+                                <a class="dropdown-item" href="{{ route('category', ['id' => $category->id, 'slug' => $category->slug]) }}">{{ $category->category_name }}</a>
+                            @endforeach
+
                         </div>
                     </div>
                     <div class="main">
@@ -115,12 +131,14 @@
                         <div class="lang_box ">
                             <a href="#" title="Language" class="nav-link" data-toggle="dropdown"
                                 aria-expanded="true">
-                                <img src="{{asset('user/images/flag-uk.png')}}" alt="flag" class="mr-2 " title="United Kingdom">
+                                <img src="{{ asset('user/images/flag-uk.png') }}" alt="flag" class="mr-2 "
+                                    title="United Kingdom">
                                 English <i class="fa fa-angle-down ml-2" aria-hidden="true"></i>
                             </a>
                             <div class="dropdown-menu ">
                                 <a href="#" class="dropdown-item">
-                                    <img src="{{asset('user/images/flag-france.png')}}" class="mr-2" alt="flag">
+                                    <img src="{{ asset('user/images/flag-france.png') }}" class="mr-2"
+                                        alt="flag">
                                     French
                                 </a>
                             </div>
@@ -142,16 +160,22 @@
             </div>
         </div>
         <!-- header section end -->
-       
+
     </div>
     <!-- banner bg main end -->
+    {{-- slider start --}}
+
+
+
+    {{-- @include('user_templete.slider') --}}
+    {{-- slider end --}}
 
 
     {{-- Dynamic Content add here start --}}
-				<div class="container py-5">
-					@yield('content')
-				</div>
-   
+    <div class="container py-5" style="margin-top:200px">
+        @yield('content')
+    </div>
+
     {{-- Dynamic Content add here end --}}
 
 
@@ -159,7 +183,8 @@
     <!-- footer section start -->
     <div class="footer_section layout_padding">
         <div class="container">
-            <div class="footer_logo"><a href="index.html"><img src="{{asset('user/images/footer-logo.png')}}"></a></div>
+            <div class="footer_logo"><a href="index.html"><img src="{{ asset('user/images/footer-logo.png') }}"></a>
+            </div>
             <div class="input_bt">
                 <input type="text" class="mail_bt" placeholder="Your Email" name="Your Email">
                 <span class="subscribe_bt" id="basic-addon2"><a href="#">Subscribe</a></span>

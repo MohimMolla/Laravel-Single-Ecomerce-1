@@ -10,6 +10,7 @@
                 <div class="card-header d-flex align-items-center justify-content-between">
                     <h4>Add New Subcategory</h4>
                     <small class="text-muted float-end">Input Information</small>
+                    <h5><a class="btn btn-info" href="{{route('addsubcategory')}}">Add Product</a></h5>
                 </div>
                 <div class="card-body">
                     @if ($errors->any())

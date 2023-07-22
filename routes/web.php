@@ -105,8 +105,10 @@ Route::controller(HomeController::class)->group(function(){
 // Home Controller Controller group Routing End
 // Home Controller Controller group Routing start
 Route::controller(ClientController::class)->group(function(){
-    Route::get('/category', 'index')->name('category');
-    Route::get('/single-product', 'singleproduct')->name('singleproduct');
+    // Route::get('/category/{id}/{slug}', 'index')->name('category');
+    Route::get('/category/{id}/{slug}', 'index')->name('category');
+
+    Route::get('/single-product/{id}/{slug}', 'singleproduct')->name('singleproduct');
     Route::get('/add-to-cart', 'addtocart')->name('addtocart');
     Route::get('/checkout', 'checkout')->name('checkout');
     Route::get('/user-profile', 'userprofile')->name('userprofile');

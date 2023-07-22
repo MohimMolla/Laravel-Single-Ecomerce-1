@@ -3,14 +3,20 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
-    public function index(){
-					return view('user_templete.category');
+    public function index($id){
+     $category = Category::findOrFail($id);
+					$products = Product::where('product_category_id', $id)->latest()->get();
+					return view('user_templete.category', compact('category', 'products'));
 				}
 				public function singleproduct(){
+					$products = Product::all();
+					
 					return view('user_templete.single');
 				}
 				public function addtocart(){

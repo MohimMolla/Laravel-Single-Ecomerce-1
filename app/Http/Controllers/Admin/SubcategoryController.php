@@ -65,11 +65,10 @@ class SubcategoryController extends Controller
   public function updatesubcategory(Request $request)
   {
     $request->validate([
-      'subcategory_name' => 'required|unique:subcategories,
-    
-      subcategory_name,' . $request->input('subcatid'),
+      'subcategory_name' => 'required|unique:subcategories,subcategory_name,' . $request->input('subcatid'),
       'category_id' => 'required',
-    ]);
+  ]);
+
       //if i want to update a category then i use this code
 
     $categories_id = $request->category_id;

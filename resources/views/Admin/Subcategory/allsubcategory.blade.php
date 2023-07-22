@@ -13,6 +13,7 @@
                 </div>
             @endif
             <h5 class="card-header">Available Sub Category Information</h5>
+            <h5><a class="btn btn-info" href="{{route('addsubcategory')}}">Add Subcategory Product</a></h5>
             <div class="table-responsive text-nowrap">
                 <table class="table">
                     <thead class="table-light">

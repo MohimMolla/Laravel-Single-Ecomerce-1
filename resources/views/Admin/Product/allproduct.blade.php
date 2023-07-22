@@ -14,42 +14,45 @@ All Product
 		</div>
 @endif
 			<h5 class="card-header">Available All Product Information</h5>
+		<h5><a class="btn btn-info" href="{{route('addproduct')}}">Add Product</a></h5>	
 			<div class="table-responsive text-nowrap">
-					<table class="table">
-							<thead class="table-light">
+					<!-- Add this inline CSS to the table element -->
+<table class="table" style="width: 100%; overflow-x: auto;">
+	<thead class="table-light">
+		<thead class="table-light">
 								
+			<tr>
+					<th>Id</th>
+					<th>Product Name</th>
+					<th>Product Category Name</th>
+					<th>Product SubCategory Name</th>
+					<th>Image</th>
+					<th>Price</th>
+					<th>Actions</th>
+			</tr>
+	</thead>
+	</thead>
+	<tbody class="table-border-bottom-0">
+					@foreach ($products as $product)
 									<tr>
-											<th>Id</th>
-											<th>Product Name</th>
-											<th>Image</th>
-											<th>Price</th>
-											<th>Actions</th>
+													<td style="font-size: 14px;">{{$product->id}}</td>
+													<td style="font-size: 14px;">{{$product->product_name}}</td>
+													<td style="font-size: 14px;">{{$product->product_category_name}}</td>
+													<td style="font-size: 14px;">{{$product->product_subcategory_name}}</td>
+													<td style="font-size: 14px;">
+																	<img src="{{ asset('productimage/' . $product->product_image) }}" height="100px" alt="">
+																	<a class="btn btn-primary" style="font-size: 12px;" href="{{route('editproductimage',$product->id)}}">Update Image</a>
+													</td>
+													<td style="font-size: 14px;">{{$product->price}}</td>
+													<td style="font-size: 14px;">
+																	<a onclick="return confirm('Are you sure you want to delete this subcategory?')" class="btn btn-primary" style="font-size: 12px;" href="{{route('editproduct',$product->id)}}">Edit</a>
+																	<a class="btn btn-danger" style="font-size: 12px;" href="{{route('deletproduct',$product->id)}}">Delete</a>
+													</td>
 									</tr>
-							</thead>
-							<tbody class="table-border-bottom-0">
+					@endforeach
+	</tbody>
+</table>
 
-								@foreach ($products as $product)
-												
-						
-									<tr>
-											<td>{{$product->id}}</td>
-											<td>{{$product->product_name}}</td>
-											<td>{{$product->product_category_name}}</td>
-											<td>{{$product->product_subcategory_name}}</td>
-											<td>{{$product->product_subcategory_name}}</td>
-											<td>
-												<img src="{{ asset('productimage/' . $product->product_image) }}" height="100px" alt="">
-												<a class="btn btn-primary" href="{{route('editproductimage',$product->id)}}">Update Image</a>
-											</td>
-											<td>
-													<a onclick="return confirm('Are you sure you want to delete this subcategory?')"  class="btn btn-primary" href="{{route('editproduct',$product->id)}}">Edit</a>
-													
-													<a class="btn btn-danger" href="{{route('deletproduct',$product->id)}}">Delet</a>
-											</td>
-									</tr>
-									@endforeach
-							</tbody>
-					</table>
 			</div>
 	</div>
 	<!-- Bootstrap Table with Header - Light -->
