@@ -63,6 +63,8 @@
                                 <li><a href="{{ route('newrelease') }}">New Releases</a></li>
                                 <li><a href="{{ route('todaysdeal') }}">Today's Deals</a></li>
                                 <li><a href="{{ route('customservice') }}">Customer Service</a></li>
+                                <li><a href="{{ route('login') }}">Login</a></li>
+                                <li><a href="{{ route('register') }}">Register</a></li>
                             </ul>
                         </div>
                     </div>
