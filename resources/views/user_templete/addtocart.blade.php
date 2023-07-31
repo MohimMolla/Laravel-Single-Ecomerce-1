@@ -16,24 +16,42 @@
                             <th>Product Name</th>
                             <th>Quantity</th>
                             <th>Price</th>
+                            <th>Image</th>
                             <th>Action</th>
                         </tr>
-																								@foreach ($product_details as $product)
-																								<tr>
-																												<td>{{ $product['name'] }}</td>
-																												<td>{{ $product['quantity'] }}</td>
-																												<td>{{ $product['price'] }}</td>
-																												<td>{{ $product['price'] }}</td>
-																											 <td>
-																													<!-- Display the product image -->
-																													<img src="{{ asset('productimage/' . $product['image']) }}" alt="{{ $product['name'] }}" width="100">
-																									</td>
-																												<td><a class="btn btn-warning" href="">Remove</a></td>
-																								</tr>
-																				@endforeach
-																				
-																				
+                        <?php
+                        $total = 0;
+                        ?>
+                        @foreach ($product_details as $product)
+                            <tr>
+                                
+                                <td>{{ $product['name'] }}</td>
+                                <td>{{ $product['quantity'] }}</td>
+                                <td>{{ $product['price'] }}</td>
+                                <td>
+                                    <!-- Display the product image -->
+                                    <img src="{{ asset('productimage/' . $product['image']) }}" alt="{{ $product['name'] }}" width="100">
+                                </td>
+                                <td>
+
+                                    {{-- <a href="{{route('removeitem',$product->id )}}" class="btn btn-warning">Remove</a> --}}
+                                    
+                                </td>
+                            </tr>
+                            <?php
+                            $total += $product['price'];
+                            ?>
+                        @endforeach
+                        <tr>
+                            <td></td>
+                            <td>Total Price</td>
+                            <td>{{ $total }}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     </table>
+                    
+                    
                 </div>
             </div>
         </div>

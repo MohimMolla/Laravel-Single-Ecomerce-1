@@ -120,6 +120,7 @@ Route::controller(ClientController::class)->group(function(){
     Route::get('/new-release', 'newrelease')->name('newrelease');
     Route::get('/todayes-deal', 'todaysdeal')->name('todaysdeal');
     Route::get('/custom-service', 'customservice')->name('customservice');
+    Route::get('/admin/remove-card-item/{id}', 'removeitem')->name('removeitem');
 });
 
 // User Controller group Routing end
