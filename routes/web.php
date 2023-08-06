@@ -103,18 +103,29 @@ Route::controller(HomeController::class)->group(function(){
  Route::get('/', 'index')->name('Home');
 });
 // Home Controller Controller group Routing End
-// Home Controller Controller group Routing start
+
+
+// Client Controller  group Routing start
 Route::controller(ClientController::class)->group(function(){
     // Route::get('/category/{id}/{slug}', 'index')->name('category');
     Route::get('/category/{id}/{slug}', 'index')->name('category');
 
     Route::get('/single-product/{id}/{slug}', 'singleproduct')->name('singleproduct');
     Route::get('/add-to-cart', 'addtocart')->name('addtocart');
+    Route::post('/add-product-to-cart', 'addproducttocart')->name('addproducttocart');
+
+    Route::get('/shipping-address', 'shippingaddress')->name('shippingaddress');
+    Route::post('/add-shipping-address', 'storeshippingaddress')->name('storeshippingaddress');
+    Route::post('/place-order', 'placeorder')->name('placeorder');
+    Route::post('/cancel-order', 'cancelorder')->name('cancelorder');
     Route::get('/checkout', 'checkout')->name('checkout');
     Route::get('/user-profile', 'userprofile')->name('userprofile');
+    Route::get('/pendings-order', 'pendingsorders')->name('pendingsorders');
+    Route::get('/user-profile/history', 'history')->name('history');
     Route::get('/new-release', 'newrelease')->name('newrelease');
     Route::get('/todayes-deal', 'todaysdeal')->name('todaysdeal');
     Route::get('/custom-service', 'customservice')->name('customservice');
+    Route::get('/remove-cart-item/{id}', 'removeitem')->name('removeitem');
 });
 
 // User Controller group Routing end

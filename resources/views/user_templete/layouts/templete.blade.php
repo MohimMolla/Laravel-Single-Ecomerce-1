@@ -56,13 +56,15 @@
                     <div class="col-sm-12">
                         <div class="custom_menu">
                             <ul>
-                                <li><a href="#">Best Sellers</a></li>
+                                <li><a href="{{url('/')}}">Best Sellers</a></li>
                                 {{-- <li>
                                     <a href="{{ route('category', ['id' => $category->id, 'slug' => $category->slug]) }}">Gift Ideas</a>
                                 </li> --}}
                                 <li><a href="{{ route('newrelease') }}">New Releases</a></li>
                                 <li><a href="{{ route('todaysdeal') }}">Today's Deals</a></li>
                                 <li><a href="{{ route('customservice') }}">Customer Service</a></li>
+                                <li><a href="{{ route('login') }}">Login</a></li>
+                                <li><a href="{{ route('register') }}">Register</a></li>
                             </ul>
                         </div>
                     </div>
@@ -145,7 +147,7 @@
                         </div>
                         <div class="login_menu">
                             <ul>
-                                <li><a href="#">
+                                <li><a href="{{route('addtocart')}}">
                                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                         <span class="padding_10">Cart</span></a>
                                 </li>

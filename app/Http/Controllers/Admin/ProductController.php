@@ -154,6 +154,10 @@ return view('Admin.Product.editproduct', compact('p_info', 'categories', 'subcat
 	}
 	//Upadte Product image   end
 
+
+
+	//Delet Product    end
+
 	public function deletproduct($id) {
 	
 		$cat_id = Product::where('id', $id)->value('product_category_id');

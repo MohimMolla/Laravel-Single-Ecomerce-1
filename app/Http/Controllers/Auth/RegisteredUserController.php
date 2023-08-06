@@ -51,7 +51,7 @@ class RegisteredUserController extends Controller
         // $user= Role::all();
         // $user->addRole('user');
         
-        $user->attachRole('user');
+        // $user->attachRole('user');
 
         event(new Registered($user));
 
