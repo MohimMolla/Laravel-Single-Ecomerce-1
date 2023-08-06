@@ -19,17 +19,26 @@
 
                             <div class="btn_main">
                                 <div class="buy_bt">
+<<<<<<< HEAD
 
+=======
+>>>>>>> 18403d30108a3db55e181f434248fd96dad76df6
                                     <form action="{{ route('addproducttocart') }}" method="POST">
                                         @csrf
                                         <input type="hidden" value="{{ $allproduct->id }}" name="product_id">
                                         <input type="hidden" value="{{ $allproduct->price }}" name="price">
+<<<<<<< HEAD
                                         {{-- <input type="hidden" value="{{ $allproduct->quantity }}" name="quantity"> --}}
+=======
+>>>>>>> 18403d30108a3db55e181f434248fd96dad76df6
                                         <input type="hidden" value="1" name="quantity">
 
                                         <input class="btn btn-warning" type="submit" value="Buy Now">
                                     </form>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 18403d30108a3db55e181f434248fd96dad76df6
                                 </div>
                                 <div class="seemore_bt"><a
                                         href="{{ route('singleproduct', ['id' => $allproduct->id, 'slug' => $allproduct->slug]) }}">See

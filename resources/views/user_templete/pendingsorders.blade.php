@@ -1,5 +1,6 @@
 @extends('user_templete.layouts.user_profile_template')
 @section('userprofile')
+<<<<<<< HEAD
     <h3>Pendings order </h3>
     @if (session()->has('message'))
         <div class="alert alert-success">
@@ -31,3 +32,7 @@
         </table>
     </div>
 @endsection
+=======
+				pendings order
+@endsection
+>>>>>>> 18403d30108a3db55e181f434248fd96dad76df6

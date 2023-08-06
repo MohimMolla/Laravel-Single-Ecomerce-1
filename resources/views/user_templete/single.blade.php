@@ -27,6 +27,7 @@
                             <li>Product Quentity ->{{ $products->price }} </li>
                         </ul>
                         <div class="btn_main">
+<<<<<<< HEAD
                             <form action="{{ route('addproducttocart') }}" method="POST">
                                 @csrf
                                 {{-- <input type="hidden" value="{{ $products->id }}" name="product_id"> --}}
@@ -43,11 +44,23 @@
                                     <label for="product_Quantity">How many Pics:</label>
                                     <input class="form-control" type="number" min="1" name="quantity" placeholder="1" required>
                                    
+=======
+                            <form action="{{route('addproducttocart')}}" method="POST">
+                                @csrf
+                                <input type="hidden" value="{{$products->id}}" name="product_id" >
+                                <div class="form-group">
+                                    <label for="product_Quentity">How many Pics :</label>
+                                    <input class="form-control" type="number" min="1" placeholder="1" required> 
+>>>>>>> 18403d30108a3db55e181f434248fd96dad76df6
                                 </div>
                                 <br>
                                 <input class="btn btn-warning" type="submit" value="Add To Cart">
                             </form>
+<<<<<<< HEAD
 
+=======
+                            
+>>>>>>> 18403d30108a3db55e181f434248fd96dad76df6
 
                         </div>
 
@@ -60,7 +73,11 @@
         <div class="fashion_section_2">
             <h3 class="fashion_taital">Releted Product</h3>
             <div class="row">
+<<<<<<< HEAD
 
+=======
+               
+>>>>>>> 18403d30108a3db55e181f434248fd96dad76df6
                 @foreach ($releted_product as $allproduct)
                     <div class="col-lg-4 col-sm-4">
                         <div class="box_main">
@@ -74,6 +91,7 @@
 
                             <div class="btn_main">
                                 <div class="buy_bt">
+<<<<<<< HEAD
                                     <form action="{{ route('addproducttocart') }}" method="POST">
                                         @csrf
                                         <input type="hidden" value="{{ $allproduct->id }}" name="product_id">
@@ -85,6 +103,17 @@
                                         <input class="btn btn-warning" type="submit" value="Add To Cart">
                                     </form>
                                 </div>
+=======
+                                      <form action="{{route('addproducttocart')}}" method="POST">
+                                    @csrf
+                                    <input type="hidden" value="{{$products->id}}" name="product_id" >
+                                    <input type="hidden" value="{{$allproduct->price}}" name="price" >
+                                    <input type="hidden" value="1" name="quantity" >
+                                  
+                                    <input class="btn btn-warning" type="submit" value="Add To Cart">
+                                </form>
+                            </div>
+>>>>>>> 18403d30108a3db55e181f434248fd96dad76df6
                                 <div class="seemore_bt"><a
                                         href="{{ route('singleproduct', ['id' => $allproduct->id, 'slug' => $allproduct->slug]) }}">See
                                         More</a></div>
@@ -96,4 +125,8 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
 @endsection
+=======
+    @endsection
+>>>>>>> 18403d30108a3db55e181f434248fd96dad76df6

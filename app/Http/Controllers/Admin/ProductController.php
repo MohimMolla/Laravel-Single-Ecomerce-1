@@ -167,6 +167,8 @@ return view('Admin.Product.editproduct', compact('p_info', 'categories', 'subcat
 
 		Category::where('id',$cat_id)->decrement('product_count', 1);
 		Subcategory::where('id', $subcat_id)->decrement('product_count', 1);
+
+		
 		return redirect()->route('allproduct')->with('message', 'Product Deleted successfully');
 
 	}

@@ -113,6 +113,7 @@ Route::controller(ClientController::class)->group(function(){
     Route::get('/single-product/{id}/{slug}', 'singleproduct')->name('singleproduct');
     Route::get('/add-to-cart', 'addtocart')->name('addtocart');
     Route::post('/add-product-to-cart', 'addproducttocart')->name('addproducttocart');
+<<<<<<< HEAD
 
     Route::get('/shipping-address', 'shippingaddress')->name('shippingaddress');
     Route::post('/add-shipping-address', 'storeshippingaddress')->name('storeshippingaddress');
@@ -121,11 +122,20 @@ Route::controller(ClientController::class)->group(function(){
     Route::get('/checkout', 'checkout')->name('checkout');
     Route::get('/user-profile', 'userprofile')->name('userprofile');
     Route::get('/pendings-order', 'pendingsorders')->name('pendingsorders');
+=======
+    Route::get('/checkout', 'checkout')->name('checkout');
+    Route::get('/user-profile', 'userprofile')->name('userprofile');
+    Route::get('/user-profile/pendings-order', 'pendingsorders')->name('pendingsorders');
+>>>>>>> 18403d30108a3db55e181f434248fd96dad76df6
     Route::get('/user-profile/history', 'history')->name('history');
     Route::get('/new-release', 'newrelease')->name('newrelease');
     Route::get('/todayes-deal', 'todaysdeal')->name('todaysdeal');
     Route::get('/custom-service', 'customservice')->name('customservice');
+<<<<<<< HEAD
     Route::get('/remove-cart-item/{id}', 'removeitem')->name('removeitem');
+=======
+    Route::get('/admin/remove-card-item/{id}', 'removeitem')->name('removeitem');
+>>>>>>> 18403d30108a3db55e181f434248fd96dad76df6
 });
 
 // User Controller group Routing end
