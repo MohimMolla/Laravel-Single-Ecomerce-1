@@ -30,7 +30,7 @@ class ClientController extends Controller
 		return view('user_templete.single', compact('products', 'releted_product'));
 	}
 
-<<<<<<< HEAD
+
 	// add product to cart
 	// public function addproducttocart(Request $request)
 	// {
@@ -117,7 +117,7 @@ class ClientController extends Controller
 		$shipping_item = Shippinginfo::where('user_id', $user_id)->first();
 
 		return view('user_templete.checkout', compact('cart_item', 'shipping_item'));
-=======
+
 	// Add to cart
 	public function addtocart()
 	{
@@ -162,14 +162,14 @@ class ClientController extends Controller
 	public function checkout()
 	{
 		return view('user_templete.checkout');
->>>>>>> 18403d30108a3db55e181f434248fd96dad76df6
+
 	}
 	public function userprofile()
 	{
 		return view('user_templete.userprofile');
 	}
 
-<<<<<<< HEAD
+
 	//place order
 	public function placeorder()
 	{
@@ -206,7 +206,7 @@ class ClientController extends Controller
 	}
 	// History
 	public function history()
-=======
+
 		// pending orders
 	public function pendingsorders()
 	{
@@ -234,7 +234,7 @@ class ClientController extends Controller
 
 		// History
 		public function history()
->>>>>>> 18403d30108a3db55e181f434248fd96dad76df6
+
 	{
 		return view('user_templete.history');
 	}
